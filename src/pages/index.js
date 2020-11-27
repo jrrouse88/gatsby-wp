@@ -11,7 +11,7 @@ export default function Home({ data }) {
       <h1>My Wordpress Blog</h1>
       <h4>Posts</h4>
       {data.allWpPost.nodes.map((node) => (
-        <div key={node.id}>
+        <div key={node.slug}>
           <p>
             <Link to={node.slug}>
               {node.title}
@@ -28,7 +28,6 @@ export const pageQuery = graphql`
   query {
     allWpPost {
       nodes {
-        id
         title
         excerpt
         slug
